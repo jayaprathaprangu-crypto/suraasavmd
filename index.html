@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools and College Administration</title>
+    <!-- Tailwind CSS for Modern Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-title {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+        @media (min-width: 768px) {
+            .admin-title {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-indigo-50 to-blue-100 font-sans antialiased min-h-screen">
+
+    <!-- MAIN DASHBOARD VIEW -->
+    <div id="mainDashboardView" class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <div class="hidden md:flex flex-col w-64 bg-indigo-950 text-white shadow-xl">
+            <div class="flex items-center justify-center h-20 shadow-md bg-indigo-900">
+                <h1 class="text-xl font-bold tracking-wider text-center px-2">EDU-ADMIN</h1>
+            </div>
+            <!-- Options removed from sidebar -->
+            <ul class="flex flex-col py-4 space-y-1">
+                <li>
+                    <a href="#" class="flex items-center h-12 px-6 bg-indigo-800 text-white border-l-4 border-yellow-400">
+                        <i class="fa-solid fa-house mr-3"></i> Dashboard
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex flex-col flex-1 h-full overflow-y-auto">
+            
+            <!-- Top Header -->
+            <header class="flex items-center justify-between h-24 px-6 bg-white/80 backdrop-blur-md border-b shadow-sm space-x-4">
+                <!-- Title Shifted Further Right using pl-16 -->
+                <div class="flex-1 overflow-x-auto whitespace-nowrap py-3 pl-16 px-6 bg-blue-900 rounded-xl shadow-md flex items-center">
+                    <h1 class="admin-title text-white tracking-wide">
+                        SCHOOLS AND COLLEGE ADMINISTRATION
+                    </h1>
+                </div>
+                
+                <div class="flex items-center space-x-4 shrink-0">
+                    <button class="text-gray-600 hover:text-indigo-600 relative">
+                        <i class="fa-solid fa-bell text-xl"></i>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <!-- RED COLOUR LOGOUT BUTTON -->
+                    <button type="button" onclick="logoutMainPage()" class="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition shadow-md">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="p-8">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-bold text-indigo-950 mb-6 text-center">Select Portal Login</h2>
+                    
+                    <!-- Three Login Options Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- SIDDARTHA SCHOOL Login -->
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-600 flex flex-col items-center text-center hover:shadow-xl transition transform hover:-translate-y-1">
+                            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">SIDDARTHA SCHOOL</h3>
+                            <p class="text-sm text-gray-500 mb-6">Access student & faculty portal</p>
+                            <button type="button" onclick="openSiddarthaLogin()" class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold transition shadow">
+                                LOGIN
+                            </button>
+                        </div>
+
+                        <!-- SURAASA SCHOOL Login -->
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-indigo-600 flex flex-col items-center text-center hover:shadow-xl transition transform hover:-translate-y-1">
+                            <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">SURAASA SCHOOL</h3>
+                            <p class="text-sm text-gray-500 mb-6">Access student & faculty portal</p>
+                            <button type="button" onclick="openPortalLogin('suraasa')" class="mt-auto w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-lg font-semibold transition shadow">
+                                LOGIN
+                            </button>
+                        </div>
+
+                        <!-- DHARMIKA COLLEGE Login -->
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-600 flex flex-col items-center text-center hover:shadow-xl transition transform hover:-translate-y-1">
+                            <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-800 mb-2">DHARMIKA COLLEGE</h3>
+                            <p class="text-sm text-gray-500 mb-6">Access student & faculty portal</p>
+                            <button type="button" onclick="openPortalLogin('dharmika')" class="mt-auto w-full bg-purple-600 hover:bg-purple-700 text-white py-2.5 rounded-lg font-semibold transition shadow">
+                                LOGIN
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- SIDDARTHA PORTAL VIEW (EMBEDDED WITH TOP LOGOUT BAR) -->
+    <div id="siddarthaPortalView" class="hidden flex-col h-screen w-screen overflow-hidden bg-slate-900">
+        <!-- Top Header with Logout Button -->
+        <header class="flex items-center justify-between h-16 px-6 bg-blue-950 text-white shadow-md shrink-0 z-10">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-school text-blue-400 text-xl"></i>
+                <span class="font-bold text-lg tracking-wide">SIDDARTHA SCHOOL PORTAL</span>
+                <span class="hidden sm:inline-block text-xs bg-blue-800 text-blue-200 px-2.5 py-1 rounded-full">siddarthavmd96@gmail.com</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://jayaprathaprangu-crypto.github.io/Siddartha1/" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center space-x-1.5 bg-blue-800 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>Open in New Tab</span>
+                </a>
+                <button type="button" onclick="logoutSiddarthaPortal()" class="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition shadow-md cursor-pointer">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        <!-- Embedded Portal Content -->
+        <div class="flex-1 w-full bg-white relative">
+            <iframe id="siddarthaPortalFrame" src="" title="Siddartha School Portal" class="w-full h-full border-0"></iframe>
+        </div>
+    </div>
+
+    <!-- SURAASA PORTAL VIEW (EMBEDDED WITH TOP LOGOUT BAR) -->
+    <div id="suraasaPortalView" class="hidden flex-col h-screen w-screen overflow-hidden bg-slate-900">
+        <!-- Top Header with Logout Button -->
+        <header class="flex items-center justify-between h-16 px-6 bg-indigo-950 text-white shadow-md shrink-0 z-10">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-graduation-cap text-indigo-400 text-xl"></i>
+                <span class="font-bold text-lg tracking-wide">SURAASA SCHOOL PORTAL</span>
+                <span class="hidden sm:inline-block text-xs bg-indigo-800 text-indigo-200 px-2.5 py-1 rounded-full">suraasavmd25@gmail.com</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://jayaprathaprangu-crypto.github.io/sur/" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center space-x-1.5 bg-indigo-800 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>Open in New Tab</span>
+                </a>
+                <button type="button" onclick="logoutSuraasaPortal()" class="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition shadow-md cursor-pointer">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+        <!-- Embedded Portal Content -->
+        <div class="flex-1 w-full bg-white relative">
+            <iframe id="suraasaPortalFrame" src="" title="Suraasa School Portal" class="w-full h-full border-0"></iframe>
+        </div>
+    </div>
+
+
+    <!-- Suraasa School Login Modal -->
+    <div id="suraasaLoginModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4" role="dialog" aria-modal="true" aria-labelledby="suraasaLoginTitle">
+        <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+            <div class="mb-5 flex items-center justify-between">
+                <h2 id="suraasaLoginTitle" class="text-xl font-bold text-indigo-950">SURAASA SCHOOL LOGIN</h2>
+                <button type="button" onclick="closePortalLogin('suraasa')" aria-label="Close login window" class="rounded-lg px-3 py-1 text-2xl text-gray-500 hover:bg-gray-100">&times;</button>
+            </div>
+            <form id="suraasaLoginForm" class="space-y-4">
+                <div><label for="suraasaUsername" class="mb-1 block text-sm font-semibold text-gray-700">USER NAME</label><input id="suraasaUsername" name="username" type="text" autocomplete="username" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100" placeholder="Enter user name"></div>
+                <div><label for="suraasaPassword" class="mb-1 block text-sm font-semibold text-gray-700">PASSWORD</label><input id="suraasaPassword" name="password" type="password" autocomplete="current-password" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100" placeholder="Enter password"></div>
+                <p id="suraasaLoginMessage" class="hidden text-sm font-medium text-red-600" role="alert"></p>
+                <div class="flex gap-3 pt-2"><button type="submit" class="flex-1 rounded-lg bg-indigo-600 px-4 py-3 font-semibold text-white shadow hover:bg-indigo-700">LOGIN</button><button type="button" onclick="closePortalLogin('suraasa')" class="flex-1 rounded-lg bg-gray-200 px-4 py-3 font-semibold text-gray-800 hover:bg-gray-300">Cancel</button></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dharmika College Login Modal -->
+    <div id="dharmikaLoginModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4" role="dialog" aria-modal="true" aria-labelledby="dharmikaLoginTitle">
+        <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+            <div class="mb-5 flex items-center justify-between">
+                <h2 id="dharmikaLoginTitle" class="text-xl font-bold text-purple-950">DHARMIKA COLLEGE LOGIN</h2>
+                <button type="button" onclick="closePortalLogin('dharmika')" aria-label="Close login window" class="rounded-lg px-3 py-1 text-2xl text-gray-500 hover:bg-gray-100">&times;</button>
+            </div>
+            <form id="dharmikaLoginForm" class="space-y-4">
+                <div><label for="dharmikaUsername" class="mb-1 block text-sm font-semibold text-gray-700">USER NAME</label><input id="dharmikaUsername" name="username" type="text" autocomplete="username" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-100" placeholder="Enter user name"></div>
+                <div><label for="dharmikaPassword" class="mb-1 block text-sm font-semibold text-gray-700">PASSWORD</label><input id="dharmikaPassword" name="password" type="password" autocomplete="current-password" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-100" placeholder="Enter password"></div>
+                <p id="dharmikaLoginMessage" class="hidden text-sm text-red-600" role="alert"></p>
+                <div class="flex gap-3 pt-2"><button type="submit" class="flex-1 rounded-lg bg-purple-600 px-4 py-3 font-semibold text-white shadow hover:bg-purple-700">LOGIN</button><button type="button" onclick="closePortalLogin('dharmika')" class="flex-1 rounded-lg bg-gray-200 px-4 py-3 font-semibold text-gray-800 hover:bg-gray-300">Cancel</button></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Siddartha School Login Modal -->
+    <div id="siddarthaLoginModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4" role="dialog" aria-modal="true" aria-labelledby="siddarthaLoginTitle">
+        <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+            <div class="mb-5 flex items-center justify-between">
+                <h2 id="siddarthaLoginTitle" class="text-xl font-bold text-blue-950">SIDDARTHA SCHOOL LOGIN</h2>
+                <button type="button" onclick="closeSiddarthaLogin()" aria-label="Close login window" class="rounded-lg px-3 py-1 text-2xl text-gray-500 hover:bg-gray-100">&times;</button>
+            </div>
+            <form id="siddarthaLoginForm" class="space-y-4">
+                <div>
+                    <label for="siddarthaUsername" class="mb-1 block text-sm font-semibold text-gray-700">USER NAME</label>
+                    <input id="siddarthaUsername" name="username" type="text" autocomplete="username" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" placeholder="Enter user name">
+                </div>
+                <div>
+                    <label for="siddarthaPassword" class="mb-1 block text-sm font-semibold text-gray-700">PASSWORD</label>
+                    <input id="siddarthaPassword" name="password" type="password" autocomplete="current-password" required class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" placeholder="Enter password">
+                </div>
+                <p id="siddarthaLoginMessage" class="hidden text-sm font-medium text-red-600" role="alert"></p>
+                <div class="flex gap-3 pt-2">
+                    <button type="submit" class="flex-1 rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white shadow hover:bg-blue-700">LOGIN</button>
+                    <button type="button" onclick="closeSiddarthaLogin()" class="flex-1 rounded-lg bg-gray-200 px-4 py-3 font-semibold text-gray-800 hover:bg-gray-300">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const SIDDARTHA_USER = 'siddarthavmd96@gmail.com';
+        const SIDDARTHA_PASS = 'Siddartha@26';
+        const SIDDARTHA_PORTAL_URL = 'https://jayaprathaprangu-crypto.github.io/Siddartha1/';
+
+        const SURAASA_USER = 'suraasavmd25@gmail.com';
+        const SURAASA_PASS = 'Suraasa@school25';
+        const SURAASA_PORTAL_URL = 'https://jayaprathaprangu-crypto.github.io/sur/';
+
+        function openSiddarthaLogin() {
+            const modal = document.getElementById('siddarthaLoginModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('siddarthaLoginMessage').classList.add('hidden');
+            document.getElementById('siddarthaUsername').focus();
+        }
+
+        function closeSiddarthaLogin() {
+            const modal = document.getElementById('siddarthaLoginModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('siddarthaLoginForm').reset();
+            document.getElementById('siddarthaLoginMessage').classList.add('hidden');
+        }
+
+        function showSiddarthaPortal() {
+            closeSiddarthaLogin();
+            document.getElementById('mainDashboardView').classList.add('hidden');
+            const portalView = document.getElementById('siddarthaPortalView');
+            portalView.classList.remove('hidden');
+            portalView.classList.add('flex');
+            document.getElementById('siddarthaPortalFrame').src = SIDDARTHA_PORTAL_URL;
+            sessionStorage.setItem('siddarthaLoggedIn', 'true');
+            sessionStorage.removeItem('suraasaLoggedIn');
+        }
+
+        function logoutSiddarthaPortal() {
+            sessionStorage.removeItem('siddarthaLoggedIn');
+            document.getElementById('siddarthaPortalFrame').src = '';
+            const portalView = document.getElementById('siddarthaPortalView');
+            portalView.classList.add('hidden');
+            portalView.classList.remove('flex');
+            document.getElementById('mainDashboardView').classList.remove('hidden');
+        }
+
+        function showSuraasaPortal() {
+            closePortalLogin('suraasa');
+            document.getElementById('mainDashboardView').classList.add('hidden');
+            const portalView = document.getElementById('suraasaPortalView');
+            portalView.classList.remove('hidden');
+            portalView.classList.add('flex');
+            document.getElementById('suraasaPortalFrame').src = SURAASA_PORTAL_URL;
+            sessionStorage.setItem('suraasaLoggedIn', 'true');
+            sessionStorage.removeItem('siddarthaLoggedIn');
+        }
+
+        function logoutSuraasaPortal() {
+            sessionStorage.removeItem('suraasaLoggedIn');
+            document.getElementById('suraasaPortalFrame').src = '';
+            const portalView = document.getElementById('suraasaPortalView');
+            portalView.classList.add('hidden');
+            portalView.classList.remove('flex');
+            document.getElementById('mainDashboardView').classList.remove('hidden');
+        }
+
+        function logoutMainPage() {
+            logoutSiddarthaPortal();
+            logoutSuraasaPortal();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Restore session if page refreshed while logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('siddarthaLoggedIn') === 'true') {
+                showSiddarthaPortal();
+            } else if (sessionStorage.getItem('suraasaLoggedIn') === 'true') {
+                showSuraasaPortal();
+            }
+        });
+
+        document.getElementById('siddarthaLoginModal').addEventListener('click', function(event) {
+            if (event.target === this) closeSiddarthaLogin();
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeSiddarthaLogin();
+        });
+
+        document.getElementById('siddarthaLoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const usernameInput = document.getElementById('siddarthaUsername').value.trim();
+            const passwordInput = document.getElementById('siddarthaPassword').value;
+            const message = document.getElementById('siddarthaLoginMessage');
+
+            if (usernameInput.toLowerCase() === SIDDARTHA_USER.toLowerCase() && passwordInput === SIDDARTHA_PASS) {
+                message.classList.add('hidden');
+                showSiddarthaPortal();
+            } else {
+                message.textContent = 'Invalid username or Password';
+                message.classList.remove('hidden');
+            }
+        });
+
+
+        // SURAASA SCHOOL and DHARMIKA COLLEGE login windows
+        const portalSettings = {
+            suraasa: { title: 'SURAASA SCHOOL LOGIN', color: 'indigo', label: 'SURAASA SCHOOL' },
+            dharmika: { title: 'DHARMIKA COLLEGE LOGIN', color: 'purple', label: 'DHARMIKA COLLEGE' }
+        };
+        function openPortalLogin(portal) {
+            const settings = portalSettings[portal];
+            if (!settings) return;
+            const modal = document.getElementById(portal + 'LoginModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById(portal + 'LoginMessage').classList.add('hidden');
+            document.getElementById(portal + 'Username').focus();
+        }
+        function closePortalLogin(portal) {
+            const modal = document.getElementById(portal + 'LoginModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById(portal + 'LoginForm').reset();
+            document.getElementById(portal + 'LoginMessage').classList.add('hidden');
+        }
+        ['suraasa', 'dharmika'].forEach(function(portal) {
+            const modal = document.getElementById(portal + 'LoginModal');
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) closePortalLogin(portal);
+            });
+            document.getElementById(portal + 'LoginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                if (portal === 'suraasa') {
+                    const usernameInput = document.getElementById('suraasaUsername').value.trim();
+                    const passwordInput = document.getElementById('suraasaPassword').value;
+                    const message = document.getElementById('suraasaLoginMessage');
+
+                    if (usernameInput.toLowerCase() === SURAASA_USER.toLowerCase() && passwordInput === SURAASA_PASS) {
+                        message.classList.add('hidden');
+                        showSuraasaPortal();
+                    } else {
+                        message.textContent = 'Invalid username or Password';
+                        message.classList.remove('hidden');
+                    }
+                    return;
+                }
+                const message = document.getElementById(portal + 'LoginMessage');
+                message.textContent = 'Login form ready. Username/password verification and portal navigation need to be connected.';
+                message.classList.remove('hidden');
+            });
+        });
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePortalLogin('suraasa');
+                closePortalLogin('dharmika');
+            }
+        });
+    </script>
+
+</body>
+</html>
